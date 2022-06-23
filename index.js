@@ -2,14 +2,33 @@ window.addEventListener('load', ()=> {
     const form = document.querySelector("#new-task-form");
     const input = document.querySelector('#new-task-input');
     const list_el = document.querySelector('#tasks');
+    var counter = 0;
 
+    // COUNTER
     form.addEventListener('submit', (e) => {
+        counter++;
         e.preventDefault();
 
-        const task = input.value;
+        // JAVASCRIPT VALIDATION
+        const tasks = input.value;
+        if (tasks == "") {
+            window.alert("Please enter some Tasks");
+            return false;
+        }
+
+        // COUNTER
+
+        const task = counter + ' . ' + input.value;
         const task_el = document.createElement('div');
         task_el.classList.add('task');  
         
+        // ALERT
+        if(document.getElementById("new-task-input").value.length == 0)
+                {
+                      window.alert("EMPTY! KINDLY ADD A TASK")
+                      return false;
+                }
+
         const task_content_el = document.createElement('div');
         task_content_el.classList.add('content'); 
 
